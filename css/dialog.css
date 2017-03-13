@@ -1,0 +1,64 @@
+.dialog
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0pt;
+    background: url("../js/black_50.png");
+    top: 0pt;
+}
+
+.dialog_panel
+{
+    width: 30%;
+    height: 20%;
+    border-radius: 2.5pt;
+    position: absolute;
+    left: 35%;
+    top: 40%;
+    background: white;
+}
+
+.dialog_msg
+{
+    float: left;
+    width: 95%;
+    margin: 2.5%;
+    height: 65%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: white;
+}
+
+.dialog_button
+{
+    width: 50%;
+    height: 30%;
+    float: left;
+    color: white;
+    background-color: #1ba97b;
+    border: 0pt;
+    border-top: solid 1pt #1db684;
+    cursor: pointer;
+}
+
+.dialog_cancel_button
+{
+    border-right: solid 0.5pt #1db684;
+}
+
+.dialog_ok_button
+{
+    border-left: solid 0.5pt #1db684;
+}
+
+.dialog_button:hover
+{
+    color: #58e0df;
+}
+
+.dialog_button:focus
+{
+    outline: 0;
+    color: #58e0df;
+}
