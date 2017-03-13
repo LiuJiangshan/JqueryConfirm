@@ -1,4 +1,5 @@
 # JqueryDialog
+##[预览效果](https://liujiangshan.github.io/JqueryDialog)
 #简单Jquery对话框
 #使用
 Confirm(msg,okDo,cancelDo);<br/>
