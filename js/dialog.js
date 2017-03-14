@@ -15,14 +15,16 @@ function Confirm(msg, okDo, cancelDo)
         $dialog_ok_button.attr("type", "button");
         $dialog_ok_button.attr("value", "确定");
         $dialog_ok_button.attr("class", "dialog_button dialog_ok_button");
-        $dialog_ok_button.click(okDo);
+        if (okDo != null && okDo != undefined)
+            $dialog_ok_button.click(okDo);
     }
     var $dialog_cancel_button = $("<input/>");
     {
         $dialog_cancel_button.attr("type", "button");
         $dialog_cancel_button.attr("value", "取消");
         $dialog_cancel_button.attr("class", "dialog_button dialog_cancel_button");
-        $dialog_cancel_button.click(cancelDo);
+        if (cancelDo != null && cancelDo != undefined)
+            $dialog_cancel_button.click(cancelDo);
     }
     var $dialog_panel = $("<div></div>");
     {
