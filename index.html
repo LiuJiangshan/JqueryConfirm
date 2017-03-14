@@ -6,9 +6,12 @@
     <script src="./js/jquery-3.1.1.min.js" type="application/javascript"></script>
     <script src="./js/dialog.js" type="application/javascript"></script>
     <link rel="stylesheet" href="./css/dialog.css">
+    <script type="application/javascript">
+    </script>
 </head>
 <body>
 <a href="javascript:Confirm('确定删除?', function (){alert('ok')}, function (){alert('cancel');});">显示确认对话框</a>
 <a href="javascript:Dialog('我是一个对话框', function (){alert('ok')});">显示消息提示框</a>
+<a href="javascript:Confirm('I am Confirm!', function (){Dialog('I am Dialog!', null);}, null);">连续弹出</a>
 </body>
 </html>

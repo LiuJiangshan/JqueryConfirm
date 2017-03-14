@@ -1,3 +1,17 @@
+function hide($dialog, finishDo)
+{
+    $dialog.find(".dialog_panel").animate({width: "0%", height: "0%", top: "50%", left: "50%"}, 100, function ()
+    {
+        $(this).remove()
+        if (finishDo != null)
+            finishDo();
+    });
+    $dialog.animate({opacity: "0"}, 100, function ()
+    {
+        $(this).remove();
+    });
+}
+
 function Confirm(msg, okDo, cancelDo)
 {
     var $dialog_msg = $("<div></div>");
@@ -9,14 +23,17 @@ function Confirm(msg, okDo, cancelDo)
             event.stopPropagation();
         });
     }
-
     var $dialog_ok_button = $("<input/>");
     {
         $dialog_ok_button.attr("type", "button");
         $dialog_ok_button.attr("value", "确定");
         $dialog_ok_button.attr("class", "dialog_button dialog_ok_button");
         if (okDo != null && okDo != undefined)
-            $dialog_ok_button.click(okDo);
+            $dialog_ok_button.click(function ()
+            {
+                event.stopPropagation();
+                hide($dialog, okDo);
+            });
     }
     var $dialog_cancel_button = $("<input/>");
     {
@@ -24,7 +41,12 @@ function Confirm(msg, okDo, cancelDo)
         $dialog_cancel_button.attr("value", "取消");
         $dialog_cancel_button.attr("class", "dialog_button dialog_cancel_button");
         if (cancelDo != null && cancelDo != undefined)
-            $dialog_cancel_button.click(cancelDo);
+            $dialog_cancel_button.click(function ()
+            {
+                event.stopPropagation();
+                hide($dialog, cancelDo);
+                cancelDo();
+            });
     }
     var $dialog_panel = $("<div></div>");
     {
@@ -35,14 +57,7 @@ function Confirm(msg, okDo, cancelDo)
         $dialog.attr("class", "dialog");
         $dialog.click(function ()
         {
-            $dialog_panel.animate({width: "0%", height: "0%", top: "50%", left: "50%"}, 100, function ()
-            {
-                $dialog_panel.remove();
-            });
-            $dialog.animate({opacity: "0"}, 100, function ()
-            {
-                $dialog.remove();
-            });
+            hide($(this), null);
         });
     }
     {
@@ -72,7 +87,11 @@ function Dialog(msg, okDo)
         $dialog_ok_button.attr("value", "确定");
         $dialog_ok_button.attr("class", "dialog_button dialog_ok_button");
         if (okDo != null && okDo != undefined)
-            $dialog_ok_button.click(okDo);
+            $dialog_ok_button.click(function ()
+            {
+                event.stopPropagation();
+                hide($dialog, okDo);
+            });
     }
     var $dialog_panel = $("<div></div>");
     {
@@ -83,14 +102,7 @@ function Dialog(msg, okDo)
         $dialog.attr("class", "dialog");
         $dialog.click(function ()
         {
-            $dialog_panel.animate({width: "0%", height: "0%", top: "50%", left: "50%"}, 100, function ()
-            {
-                $dialog_panel.remove();
-            });
-            $dialog.animate({opacity: "0"}, 100, function ()
-            {
-                $dialog.remove();
-            });
+            hide($dialog, null);
         });
     }
     {
